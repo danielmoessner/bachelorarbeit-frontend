@@ -1,0 +1,18 @@
+{
+    "eslint.validate": ["vue", "javascript", "typescript"],
+    "eslint.packageManager": "npm",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    },
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "tailwindCSS.emmetCompletions": true,
+    "emmet.includeLanguages": {
+      "edge": "html",
+      "vue-html": "html",
+      "vue": "html"
+    },
+  }
