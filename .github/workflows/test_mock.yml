@@ -1,4 +1,4 @@
-name: Test with node backend
+name: Test with mocks
 
 on:
   push:

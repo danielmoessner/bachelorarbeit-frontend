@@ -1,0 +1,6 @@
+name: Test with django backend
+
+on:
+  push:
+    branches:
+      - main
