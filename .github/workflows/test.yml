@@ -6,21 +6,6 @@ on:
       - main
 
 jobs:
-  - name: Download the backend
-    uses: benday-inc/download-latest-artifact@main
-    with:
-      token: ${{ secrets.TOKEN_WITH_PERMISSIONS }}'
-      repository_owner: 'danielmoessner'
-      repository_name: 'node-backend.danielmoessner.de'
-      workflow_name: 'Create Artifact'
-      branch_name: 'main'
-      artifact_name: 'node-backend'
-      download_path: '${{ github.workspace }}/backend'
-      download_filename: 'backend.zip'
-
-  - name: Unpack and run the backend
-    run: unzip ${{ github.workspace }}/backend/backend.zip
-
   test:
     name: Run jest tests
     runs-on: ubuntu-latest
@@ -30,6 +15,21 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Download the backend
+        uses: benday-inc/download-latest-artifact@main
+        with:
+          token: ${{ secrets.TOKEN_WITH_PERMISSIONS }}'
+          repository_owner: 'danielmoessner'
+          repository_name: 'node-backend.danielmoessner.de'
+          workflow_name: 'Create Artifact'
+          branch_name: 'main'
+          artifact_name: 'node-backend'
+          download_path: '${{ github.workspace }}/backend'
+          download_filename: 'backend.zip'
+
+      - name: Unpack and run the backend
+        run: unzip ${{ github.workspace }}/backend/backend.zip
 
       - name: Test
         run: npm run test
