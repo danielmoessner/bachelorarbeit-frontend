@@ -13,9 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: npm install
-
       - name: Download the backend
         uses: benday-inc/download-latest-artifact@main
         with:
@@ -29,6 +26,9 @@ jobs:
 
       - name: Unpack and run the backend
         run: unzip ${{ github.workspace }}/backend/backend.zip
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Test
         run: npm run test
