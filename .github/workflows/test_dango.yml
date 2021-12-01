@@ -4,3 +4,33 @@ on:
   push:
     branches:
       - main
+
+jobs:
+  test1:
+    name: Run jest tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Download the backend
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: create_artifact.yml
+          workflow_conclusion: success
+          branch: main
+          name: django-backend
+          path: ${{ github.workspace }}/backend
+          repo: danielmoessner/django-backend.danielmoessner.de
+
+      - name: Install backend requirements
+        run: pip install -r backend/requirements.txt
+
+      - name: Run backend
+        run: nohup python backend/manage.py runserver &
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Test
+        run: npm run test:django
