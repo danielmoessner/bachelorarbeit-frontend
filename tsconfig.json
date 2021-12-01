@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
+      "baseUrl": ".",
     "target": "esnext",
-    "useDefineForClassFields": true,
     "module": "esnext",
     "moduleResolution": "node",
     "strict": true,
@@ -10,11 +10,11 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
-    "baseUrl": ".",
+    "useDefineForClassFields": true,
     "paths": {
       "@/*": ["./src/*"]
     },
     "types": ["vite/client", "node", "jest"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "test/**/*.ts"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue", "tests/**/*.ts"],
 }
