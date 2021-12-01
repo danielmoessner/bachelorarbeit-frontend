@@ -31,9 +31,9 @@ jobs:
           # download_filename: 'backend.zip'
 
       - name: Install forever
-        run: npm install forever
+        run: npm install forever -g
 
-      - name: Install forever
+      - name: Run backend
         run: forever start backend/books.js
 
       - name: Install dependencies
