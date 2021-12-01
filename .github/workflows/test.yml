@@ -1,0 +1,20 @@
+name: Deploy dev.govradar.net
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Run jest tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Test
+        run: npm run test
