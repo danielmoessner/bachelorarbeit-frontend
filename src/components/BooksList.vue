@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
-import axios from "axios";
+import $axios from "@/axios";
 
 interface Book {
   name: string;
@@ -21,9 +21,7 @@ export default defineComponent({
     };
   },
   mounted() {
-    axios
-      .get("http://localhost:8100/")
-      .then((response) => (this.books = response.data));
+    $axios.get("").then((response) => (this.books = response.data));
     // this.books = [
     //   {
     //     name: "1984",

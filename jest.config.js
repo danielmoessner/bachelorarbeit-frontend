@@ -1,10 +1,9 @@
 module.exports = {
-  globals: {},
   testEnvironment: "jsdom",
   transform: {
     "^.+\\.vue$": "@vue/vue3-jest",
     "^.+\\js$": "babel-jest",
-    "^.+\\.ts$": "ts-jest",
+    "^.+\\.ts$": "babel-jest",
   },
   moduleFileExtensions: ["vue", "js", "ts"],
   moduleNameMapper: {
@@ -16,5 +15,6 @@ module.exports = {
     "@/services/(.*)$": "<rootDir>/src/services/$1",
     "@/store/(.*)$": "<rootDir>/src/store/$1",
     "@/views/(.*)$": "<rootDir>/src/views/$1",
+    "@/axios$": "<rootDir>/src/axios",
   },
 };

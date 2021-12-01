@@ -1,4 +1,4 @@
-name: Deploy dev.govradar.net
+name: Test with node backend
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  test:
+  test1:
     name: Run jest tests
     runs-on: ubuntu-latest
     steps:
@@ -23,13 +23,6 @@ jobs:
           path: ${{ github.workspace }}/backend
           repo: danielmoessner/node-backend.danielmoessner.de
 
-          # token: ${{ secrets.TOKEN }}'
-          # repository_owner: 'danielmoessner'
-          # repository_name: 'node-backend.danielmoessner.de'
-          # branch_name: 'main'
-          # artifact_name: 'node-backend'
-          # download_filename: 'backend.zip'
-
       - name: Install forever
         run: npm install forever -g
 
@@ -40,4 +33,4 @@ jobs:
         run: npm install
 
       - name: Test
-        run: npm run test
+        run: npm run test:node
