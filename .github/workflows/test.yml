@@ -30,8 +30,11 @@ jobs:
           # artifact_name: 'node-backend'
           # download_filename: 'backend.zip'
 
-      - name: Unpack and run the backend
-        run: unzip ${{ github.workspace }}/backend/backend.zip
+      - name: Install forever
+        run: npm install forever
+
+      - name: Install forever
+        run: forever start backend/books.js
 
       - name: Install dependencies
         run: npm install
