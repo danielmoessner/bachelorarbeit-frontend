@@ -19,7 +19,6 @@ jobs:
       - name: Download the backend
         uses: benday-inc/download-latest-artifact@main
         with:
-          token: ${{ secrets.TOKEN_WITH_PERMISSIONS }}'
           repository_owner: 'danielmoessner'
           repository_name: 'node-backend.danielmoessner.de'
           workflow_name: 'Create Artifact'
