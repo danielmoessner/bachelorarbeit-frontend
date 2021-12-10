@@ -3,7 +3,7 @@ name: Test with django backend
 on:
   push:
     branches:
-      - beispiel1
+      - beispiel2
 
 jobs:
   test1:
@@ -13,13 +13,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Download the sales service
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: create_artifact.yml
+          workflow_conclusion: success
+          branch: main
+          name: order-service
+          path: ${{ github.workspace }}/orders
+          repo: danielmoessner/bachelorarbeit-orders
+      
+      - name: Install dependencies
+        run: npm install request-promise-native -g
+      
+      - name: Install forever
+        run: npm install forever -g
+
+      - name: Run backend
+        run: forever start orders/sales.js
+
       - name: Download the backend
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: create_artifact.yml
           workflow_conclusion: success
-          branch: beispiel1
-          name: books-django-1
+          branch: beispiel2
+          name: books-django-2
           path: ${{ github.workspace }}/backend
           repo: danielmoessner/django-backend.danielmoessner.de
 

@@ -13,11 +13,13 @@ describe("books component", () => {
           name: "1984",
           author: "George Orwell",
           published: 1949,
+          sales: 2,
         },
         {
           name: "The Gulag Archipelago",
           author: "Aleksandr Solzhenitsyn",
           published: 2018,
+          sales: 0,
         },
       ];
 
@@ -29,12 +31,14 @@ describe("books component", () => {
 
       expect(component.text()).toContain("1984");
       expect(component.text()).toContain("The Gulag Archipelago");
+      expect(component.text()).toContain("Verkäufe");
     } else {
       const component = mount(BooksList, {});
 
       setTimeout(() => {
         expect(component.text()).toContain("1984");
         expect(component.text()).toContain("The Gulag Archipelago");
+        expect(component.text()).toContain("Verkäufe");
       }, 1000);
     }
   });

@@ -5,9 +5,16 @@
     <span v-if="!loading && !error && books.length === 0">
       There are no books.
     </span>
-    <ul>
-      <li v-for="book in books" :key="book.name">{{ book.name }}</li>
-    </ul>
+    <table v-if="books.length > 0">
+      <tr>
+        <th>Buch</th>
+        <th>Verkäufe</th>
+      </tr>
+      <tr v-for="book in books" :key="book.name">
+        <td>{{ book.name }}</td>
+        <td>{{ book.sales }}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
