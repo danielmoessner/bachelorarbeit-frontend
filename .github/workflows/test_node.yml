@@ -37,7 +37,7 @@ jobs:
         with:
           workflow: create_artifact.yml
           workflow_conclusion: success
-          branch: beispiel1
+          branch: beispiel2
           name: books-node-2
           path: ${{ github.workspace }}/backend
           repo: danielmoessner/node-backend.danielmoessner.de
