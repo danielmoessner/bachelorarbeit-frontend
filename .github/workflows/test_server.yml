@@ -3,7 +3,7 @@ name: Test with server backend
 on:
   push:
     branches:
-      - main
+      - beispiel1
 
 jobs:
   test:

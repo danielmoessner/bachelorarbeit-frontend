@@ -3,7 +3,7 @@ name: Test with mocks
 on:
   push:
     branches:
-      - main
+      - beispiel1
 
 jobs:
   test:

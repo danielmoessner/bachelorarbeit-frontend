@@ -3,7 +3,7 @@ name: Test with django backend
 on:
   push:
     branches:
-      - main
+      - beispiel1
 
 jobs:
   test1:
@@ -19,7 +19,7 @@ jobs:
           workflow: create_artifact.yml
           workflow_conclusion: success
           branch: main
-          name: django-backend
+          name: books-django-1
           path: ${{ github.workspace }}/backend
           repo: danielmoessner/django-backend.danielmoessner.de
 
